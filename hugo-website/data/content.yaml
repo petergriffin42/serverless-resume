@@ -1,0 +1,121 @@
+BasicInfo:
+  FirstName: Peter
+  LastName: Griffin
+  Photo: img/headshot.jpg
+  Contacts:
+    - Icon: fas fa-home
+      Info: https://peter.griffin-resume.com
+    - Icon: fas fa-phone
+      Info: 480-269-5426
+    - Icon: fas fa-envelope
+      Info: peter.martin.griffin1@gmail.com
+    - Icon: fas fa-map-marker-alt
+      Info: Arizona
+
+URL: This resume was deployed to AWS & Azure utilizing Terraform. Check it out at https://github.com/petergriffin42/serverless-resume
+
+Profile: Highly experienced Senior DevOps Engineer with 6+ years of expertise in automating deployments and proficiently managing Kubernetes environments
+
+Experience:
+  - Employer: Swift Transportation
+    Place: Phoenix, AZ
+    Positions:
+      - Title: Senior DevOps Engineer
+        Date: December 2022 - Present
+        Details:
+          - Designed and deployed new Azure AKS clusters following a GitOps model utilizing ArgoCD, Helm, Terraform, and Kustomize
+          - Led cost saving initiative by right sizing existing AKS Nodes and containers reducing memory by 500%
+          - Updated multiple on-prem OpenShift Kubernetes clusters and expertly troubleshooted issues during the process
+        Badges: ['Azure', 'ArgoCD', 'Kubernetes', 'Gitlab', 'GitOps', 'OpenShift', 'Terraform']
+  - Employer: Vitalant
+    Place: Scottsdale, AZ
+    Positions:
+      - Title: Senior Systems Engineer
+        Date: May 2021 - December 2022
+        Details:
+          - Deployed AWS EKS Clusters with Terraform and migrated multiple internal applications
+          - Established and streamlined CI/CD pipelines for application changes and provided guidance to developers on the implementation process
+          - Created bootstrap Ansible playbooks to easily deploy remote servers
+          - Streamlined existing manual processes into automated python API scripts
+        Badges: ['Ansible', 'AWS', 'Docker', 'Kubernetes', 'Gitlab', 'Terraform']
+  - Employer: CCBill LLC
+    Place: Phoenix, AZ
+    Positions:
+      - Title: Systems Engineer 2
+        Date: May 2017 - May 2021
+        Details:
+          - Led initiative to replace Jenkins CI/CD Docker nodes with on-prem Kubernetes clusters
+          - Developed and deployed Ansible playbooks to upgrade multiple MySQL Database servers seamlessly
+          - Reduced setup time significantly by automating the creation and installation of new Linux environments through Ansible and Puppet
+          - Proactively maintained, monitored, and patched RedHat/CentOS servers in multiple VMware Production environments
+        Badges: ['Ansible', 'Database', 'Kubernetes', 'Load Balancing', 'Linux', 'Puppet', 'VMware']
+References:
+  - Name: Bill Holt
+    Relation: Director of Network Operations at PhoenixNAP LLC
+    Contacts:
+    - Icon: fas fa-phone
+      Info: 480-293-4503
+    - Icon: fas fa-envelope
+      Info: billh@phoenixnap.com
+  - Name: Kathy Henry
+    Relation: Manager of Systems Engineering at CCBill LLC
+    Contacts:
+    - Icon: fas fa-phone
+      Info: 623-363-4382
+    - Icon: fas fa-envelope
+      Info: kathyh@ccbill.com
+
+Skills:
+  - Family: Programming
+    Items:
+      - Bash
+      - Powershell
+      - Python
+  - Family: Container Platforms
+    Items:
+      - Docker
+      - Kubernetes
+      - AKS
+      - EKS
+      - OpenShift
+  - Family: Automation Tools
+    Items:
+      - Ansible
+      - Puppet
+      - Terraform
+  - Family: Developer Tools
+    Items:
+      - Git
+      - Github
+      - Github Actions
+      - Gitlab
+      - Gitlab CI
+  - Family: Kubernetes Tools
+    Items:
+      - Helm
+      - Kustomize
+      - Cert-Manager
+  - Family: Cloud
+    Items:
+      - Amazon Web Services (AWS)
+      - Azure
+      - VMware
+  - Family: GitOps Tools
+    Items:
+     - ArgoCD
+     - External Secrets
+     - Sealed Secrets
+  - Family: Software
+    Items:
+      - Bitbucket
+      - Confluence
+      - Jira
+      - Rapid7
+      - Splunk
+      - Vault
+
+Certifications:
+  - Certified Kubernetes Administrator CKA (Nov 2022)
+  - Puppet Practioner (Dec 2019)
+  - RedHat Certified System Administrator RHCSA (Mar 2019)
+
