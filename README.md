@@ -1,9 +1,14 @@
-This repository details how I completely automated deploying my serverless resume to Azure Blob Storage and a Amazon S3 Bucket with Cloudflare DNS Load Balancing between them. This shows off my understanding of utilizing multiple Cloud platforms while minimizing costs with serverless technologies. 
+# Serverless Resume Deployment
 
-I previously had my resume on a Kubernetes cluster in AWS however even though it was impressive to show off the bill was a bit too high. Feel free to check it out at 
+This repository documents the complete automation of deploying my serverless resume to Azure Blob Storage and an Amazon S3 Bucket. Previously hosted on a Kubernetes cluster in AWS, the expenses prompted a shift to a more cost-effective approach. The current deployment minimizes costs while showcasing my proficiency in navigating multiple Cloud platforms, utilizing Python, and leveraging Terraform.
 
-# Prerequisites
-Own/buy domain to use for your resume in Cloudflare
-Azure Account
-AWS Account
+## Deployment Process
 
+### 1. Hugo Static Site Generation
+   - Hugo, a fast and flexible static site generator, is employed to generate the website's content and structure. It produces the static files ready for upload utilizing a template.
+
+### 2. Terraform Infrastructure Provisioning
+   - Terraform automates the provisioning of Azure Blob Storage and an Amazon S3 Bucket, forming the foundational infrastructure for the serverless resume.
+
+### 3. Python Cloudflare DNS Automation (Workaround)
+   - To address an open issue preventing Terraform from handling the DNS records a Python script is utilized. This Python script dynamically configures DNS records on Cloudflare during the Terraform process, serving as a workaround for the existing module limitation.
