@@ -15,7 +15,6 @@ jobs:
     env:
       PYTHON_REQUIREMENTS_PATH: 'python-update-dns/requirements.txt'
 
-
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
@@ -41,6 +40,15 @@ jobs:
 
     env:
       DOMAIN: 'peter.griffin-resume.com'
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      CF_API_EMAIL: ${{ secrets.CF_API_EMAIL }}
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
 
     needs: build
 
