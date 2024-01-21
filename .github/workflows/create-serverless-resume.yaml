@@ -13,7 +13,7 @@ jobs:
     runs-on: self-hosted
 
     env:
-      PYTHON_REQUIREMENTS_PATH: 'python-update-dns/requirements.txt'
+      PYTHON_PATH: 'python-update-dns/requirements.txt'
 
     steps:
     - name: Checkout repository
@@ -29,10 +29,15 @@ jobs:
       with:
         python-version: '3.10' 
 
+    - name: Create Python virtual env
+      run: |
+        python -m venv ${{ env.PYTHON_PATH }}/env
+        source ${{ env.PYTHON_PATH }}/env/bin/activate
+
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r ${{ env.PYTHON_REQUIREMENTS_PATH }}
+        pip install -r ${{ env.PYTHON_PATH }}/requirements.txt
 
   run-terraform:
     name: Run terraform apply
