@@ -32,10 +32,10 @@ jobs:
     - name: Create Python virtual env
       run: |
         python -m venv ${{ env.PYTHON_PATH }}/env
-        source ${{ env.PYTHON_PATH }}/env/bin/activate
 
     - name: Install Python dependencies
       run: |
+        source ${{ env.PYTHON_PATH }}/env/bin/activate
         python -m pip install --upgrade pip
         pip install -r ${{ env.PYTHON_PATH }}/requirements.txt
 
