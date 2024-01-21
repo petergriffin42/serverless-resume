@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
     bucket = "terraform-state-rhhtdrmclbni"
     key    = "terraform.tfstate"
-    region = var.aws_bucket_location
+    region = "us-west-2"
   }
 
   required_providers {
