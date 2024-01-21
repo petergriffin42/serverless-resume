@@ -1,8 +1,6 @@
 data "azurerm_client_config" "current" {}
 
 locals {
-    custom_domain = "peter.griffin-resume.com"
-    test_domain = "test.peter.griffin-resume.com"
     
     # An open github issue involves indirect CNAME validation not working. https://github.com/hashicorp/terraform-provider-azurerm/issues/12737
     # In the interest of cost I want to use Cloudflare Proxy instead of Azure Front Door for SSL. So as a workaround I will set the azure_web that seems to fit uswest2
@@ -32,7 +30,7 @@ resource "random_string" "storage_account_name" {
 
 resource "azurerm_resource_group" "resume_resource_group" {
   name     = "resume_resource_group"
-  location = var.resource_group_location
+  location = var.azure_resource_group_location
 }
 
 resource "azurerm_storage_account" "storage_account" {
@@ -50,7 +48,7 @@ resource "azurerm_storage_account" "storage_account" {
   enable_https_traffic_only = false
 
   custom_domain {
-    name                   = local.custom_domain
+    name                   = var.custom_domain
     use_subdomain          = false
   }
 
@@ -66,7 +64,7 @@ resource "null_resource" "update_dns_record_proxy_off" {
 }
   provisioner "local-exec" {
     command = <<-EOT
-      ${path.module}/python-update-dns/env/bin/python ${path.module}/python-update-dns/update-cloudflare-record.py --record-name ${local.custom_domain} --record-type CNAME --record-content ${local.azure_storage_web}
+      ${path.module}/python-update-dns/env/bin/python ${path.module}/python-update-dns/update-cloudflare-record.py --record-name ${var.custom_domain} --record-type CNAME --record-content ${local.azure_storage_web}
     EOT
   }
 }
@@ -75,9 +73,12 @@ resource "null_resource" "update_dns_record_proxy_on" {
   triggers = {
     storage_created = azurerm_storage_account.storage_account.id
 }
+
+# For those that are closely looking at the code you may be wondering why I am deploying an s3 bucket but only adding the DNS for Azure.
+# To minimize costs I decided against adding a Load Balancer to the website. My original intent was to have an LB so the setup is mostly there so I kept the code for the s3 buckets.
   provisioner "local-exec" {
     command = <<-EOT
-      ${path.module}/python-update-dns/env/bin/python ${path.module}/python-update-dns/update-cloudflare-record.py --record-name ${local.custom_domain} --record-type CNAME --record-content ${local.azure_storage_web} --proxied
+      ${path.module}/python-update-dns/env/bin/python ${path.module}/python-update-dns/update-cloudflare-record.py --record-name ${var.custom_domain} --record-type CNAME --record-content ${local.azure_storage_web} --proxied
     EOT
   }
 }
@@ -97,9 +98,9 @@ resource "azurerm_storage_blob" "resume_files" {
 }
 
 
-# AWS does not require verification for hosting your domain through s3. The only restriction is the bucket name has to be the domain name
+# AWS does not require verification for hosting your domain through s3. The only restriction is the bucket name has to match the domain name
 resource "aws_s3_bucket" "resume" {
-  bucket = local.custom_domain
+  bucket = var.custom_domain
 }
 
 resource "aws_s3_bucket_website_configuration" "resume" {

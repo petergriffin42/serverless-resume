@@ -4,7 +4,7 @@ terraform {
   backend "s3" {
     bucket = "terraform-state-rhhtdrmclbni"
     key    = "terraform.tfstate"
-    region = "us-west-2"
+    region = var.aws_bucket_location
   }
 
   required_providers {
@@ -36,5 +36,5 @@ provider "azurerm" {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = var.aws_bucket_location
 }
