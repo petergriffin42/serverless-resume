@@ -14,11 +14,11 @@ jobs:
 
     env:
       PYTHON_REQUIREMENTS_PATH: 'python-update-dns/requirements.txt'
-      DOMAIN: 'peter.griffin-resume.com'
+
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
@@ -39,7 +39,10 @@ jobs:
     name: Run terraform apply
     runs-on: self-hosted
 
-    needs: build-tools
+    env:
+      DOMAIN: 'peter.griffin-resume.com'
+
+    needs: build
 
     steps:
     - name: Set DOMAIN based on branch name
