@@ -13,7 +13,7 @@ jobs:
     runs-on: self-hosted
 
     env:
-      PYTHON_PATH: 'python-update-dns/requirements.txt'
+      PYTHON_PATH: 'python-update-dns'
 
     steps:
     - name: Checkout repository
