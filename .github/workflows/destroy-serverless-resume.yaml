@@ -1,0 +1,39 @@
+name: Serverless Resume Deletion Workflow
+
+on:
+  delete:
+    branches:
+      - '*'
+
+jobs:
+  build-tools:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+      with:
+        terraform_version: "1.1.7"
+
+  terraform-destroy:
+    runs-on: self-hosted
+
+    needs: build-tools
+
+    steps:
+    - name: Set DOMAIN based on branch name
+      run: |
+        if [ "$GITHUB_REF" != "refs/heads/main" ]; then
+          echo "Setting DOMAIN for pull request"
+          export DOMAIN="${{ github.event.pull_request.head.ref }}.griffin-resume.com"
+        fi
+      shell: bash
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve -var="custom_domain=${DOMAIN}"
