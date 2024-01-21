@@ -45,6 +45,7 @@ jobs:
 
     env:
       DOMAIN: 'peter.griffin-resume.com'
+      PYTHON_PATH: 'python-update-dns'
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
@@ -58,6 +59,10 @@ jobs:
     needs: build
 
     steps:
+    - name: Activate Python virtual env
+      run: |
+        source ${{ env.PYTHON_PATH }}/env/bin/activate
+    
     - name: Set DOMAIN based on branch name
       run: |
         if [ "$GITHUB_REF" != "refs/heads/main" ]; then
