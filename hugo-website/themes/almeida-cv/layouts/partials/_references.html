@@ -19,7 +19,7 @@
                         </h4>
                     </div>
                     {{ range .Contacts }}
-                        <li class="references__contact">
+                        <li class="references__contact" style="float: left; margin-right: 50px; width: 150px;">
                             <i class="{{ .Icon }}"></i><span>{{ .Info | safeHTML }}</span>
                         </li>
                     {{ end }}
