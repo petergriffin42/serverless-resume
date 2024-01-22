@@ -66,7 +66,7 @@ jobs:
     - name: Set DOMAIN based on branch name
       run: |
         if [ "$GITHUB_REF" != "refs/heads/main" ]; then
-          echo "Setting DOMAIN for pull request"
+          echo "Setting DOMAIN for pull request to ${{ github.event.pull_request.head.ref }}.griffin-resume.com"
           export DOMAIN="${{ github.event.pull_request.head.ref }}.griffin-resume.com"
         fi
       shell: bash
