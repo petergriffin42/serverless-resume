@@ -25,6 +25,7 @@ jobs:
 
     needs: build
 
+    steps:
     - name: Terraform Init
       run: terraform init -backend-config="key=${{ github.ref_name }}"
 
