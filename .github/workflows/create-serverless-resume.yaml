@@ -66,8 +66,8 @@ jobs:
     - name: Set DOMAIN based on branch name
       run: |
         if [ "$GITHUB_REF" != "refs/heads/main" ]; then
-          echo "Setting DOMAIN for pull request"
-          export DOMAIN="${{ github.event.pull_request.head.ref }}.griffin-resume.com"
+          echo "Setting DOMAIN for pull request to ${{ github.event.pull_request.head.ref }}.griffin-resume.com"
+          echo "DOMAIN=${{ github.event.pull_request.head.ref }}.griffin-resume.com" >> $GITHUB_ENV
         fi
       shell: bash
 
@@ -75,7 +75,7 @@ jobs:
       run: terraform init -backend-config="key=${{ github.ref_name }}"
 
     - name: Terraform Plan
-      run: terraform plan -var="custom_domain=${DOMAIN}"
+      run: terraform plan -var="custom_domain=${{ env.DOMAIN }}"
 
     - name: Terraform Apply
-      run: terraform apply -auto-approve -var="custom_domain=${DOMAIN}"
+      run: terraform apply -auto-approve -var="custom_domain=${{ env.DOMAIN }}"

@@ -29,7 +29,7 @@ resource "random_string" "storage_account_name" {
 }
 
 resource "azurerm_resource_group" "resume_resource_group" {
-  name     = "resume_resource_group"
+  name     = join("", ["resume_resource_group_",random_string.storage_account_name.result])
   location = var.azure_resource_group_location
 }
 
