@@ -35,7 +35,7 @@ jobs:
       shell: bash
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -backend-config="key=${{ github.ref_name }}"
 
     - name: Terraform Destroy
       run: terraform destroy -auto-approve -var="custom_domain=${DOMAIN}"
