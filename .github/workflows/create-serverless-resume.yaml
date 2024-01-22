@@ -72,7 +72,7 @@ jobs:
       shell: bash
 
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -backend-config="key=${{ github.ref_name }}"
 
     - name: Terraform Plan
       run: terraform plan -var="custom_domain=${DOMAIN}"
