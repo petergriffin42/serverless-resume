@@ -25,17 +25,8 @@ jobs:
 
     needs: build
 
-    steps:
-    - name: Set DOMAIN based on branch name
-      run: |
-        if [ "$GITHUB_REF" != "refs/heads/main" ]; then
-          echo "Setting DOMAIN for pull request"
-          export DOMAIN="${{ github.event.pull_request.head.ref }}.griffin-resume.com"
-        fi
-      shell: bash
-
     - name: Terraform Init
       run: terraform init -backend-config="key=${{ github.ref_name }}"
 
     - name: Terraform Destroy
-      run: terraform destroy -auto-approve -var="custom_domain=${DOMAIN}"
+      run: terraform destroy -auto-approve
