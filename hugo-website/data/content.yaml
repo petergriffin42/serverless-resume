@@ -23,32 +23,29 @@ Experience:
       - Title: Senior DevOps Engineer
         Date: December 2022 - Present
         Details:
-          - Designed and deployed new Azure AKS clusters following a GitOps model utilizing ArgoCD, Helm, Terraform, and Kustomize
-          - Led cost saving initiative by right sizing existing AKS Nodes and containers reducing memory by 500%
-          - Updated multiple on-prem OpenShift Kubernetes clusters and expertly troubleshooted issues during the process
-        Badges: ['Azure', 'ArgoCD', 'Kubernetes', 'Gitlab', 'GitOps', 'OpenShift', 'Terraform']
+          - Led DevOps team in managing and optimizing a combination of Azure Kubernetes Service (AKS) and OpenShift production clusters to ensure high availability and performance
+          - Designed new Kubernetes clusters and pipelines following a GitOps workflow. Employed tools such as ArgoCD, Kustomize, Helm, and Terraform
+          - Spearheaded a cost-saving initiative utilizing Vertical Pod Autoscalers to rightsize container loads, reducing AKS cloud costs by 50%
+          - Implemented Prometheus and ELK stacks to monitor applications within AKS and OpenShift clusters, providing developers with tools to design their own alerting systems and enhance application observability.
+          - Principal troubleshooter for any complicated Production issues, ensuring swift resolution and minimal downtime
+          - Collaborated closely with development teams to optimize CI/CD pipelines and ensure smooth integration and delivery of new features
   - Employer: Vitalant
     Place: Scottsdale, AZ
     Positions:
       - Title: Senior Systems Engineer
         Date: May 2021 - December 2022
         Details:
-          - Deployed AWS EKS Clusters with Terraform and migrated multiple internal applications
-          - Established and streamlined CI/CD pipelines for application changes and provided guidance to developers on the implementation process
-          - Created bootstrap Ansible playbooks to easily deploy remote servers
-          - Streamlined existing manual processes into automated python API scripts
-        Badges: ['Ansible', 'AWS', 'Docker', 'Kubernetes', 'Gitlab', 'Terraform']
+          - Orchestrated the deployment of AWS EKS Clusters using Terraform, while concurrently dockerizing and migrating multiple internal applications to the Kubernetes environment
+          - Streamlined existing manual processes by developing automated Python API scripts
   - Employer: CCBill LLC
     Place: Phoenix, AZ
     Positions:
       - Title: Systems Engineer 2
         Date: May 2017 - May 2021
         Details:
-          - Led initiative to replace Jenkins CI/CD Docker nodes with on-prem Kubernetes clusters
-          - Developed and deployed Ansible playbooks to upgrade multiple MySQL Database servers seamlessly
-          - Reduced setup time significantly by automating the creation and installation of new Linux environments through Ansible and Puppet
-          - Proactively maintained, monitored, and patched RedHat/CentOS servers in multiple VMware Production environments
-        Badges: ['Ansible', 'Database', 'Kubernetes', 'Load Balancing', 'Linux', 'Puppet', 'VMware']
+          - Project lead on upgrading multiple large production MySQL database servers, developing Ansible playbooks to ensure seamless and safe upgrades
+          - Completely automated the creation of new Linux environments in VMware, encompassing over 50 Virtual Machines, using Ansible and Puppet
+          - Led initiative to replace Jenkins CI/CD Docker agents with on-prem Kubernetes clusters
 References:
   - Name: Bill Holt
     Relation: Director of Network Operations at PhoenixNAP LLC
@@ -66,11 +63,16 @@ References:
       Info: kathyh@ccbill.com
 
 Skills:
-  - Family: Programming
+  - Family: Automation Tools
     Items:
-      - Bash
-      - Powershell
-      - Python
+      - Ansible
+      - Puppet
+      - Terraform
+  - Family: Cloud
+    Items:
+      - Amazon Web Services (AWS)
+      - Azure
+      - VMware
   - Family: Container Platforms
     Items:
       - Docker
@@ -78,11 +80,6 @@ Skills:
       - AKS
       - EKS
       - OpenShift
-  - Family: Automation Tools
-    Items:
-      - Ansible
-      - Puppet
-      - Terraform
   - Family: Developer Tools
     Items:
       - Git
@@ -90,25 +87,31 @@ Skills:
       - Github Actions
       - Gitlab
       - Gitlab CI
-  - Family: Kubernetes Tools
-    Items:
-      - Helm
-      - Kustomize
-      - Cert-Manager
-  - Family: Cloud
-    Items:
-      - Amazon Web Services (AWS)
-      - Azure
-      - VMware
   - Family: GitOps Tools
     Items:
      - ArgoCD
      - External Secrets
      - Sealed Secrets
+  - Family: Kubernetes Tools
+    Items:
+      - Helm
+      - Kustomize
+      - Cert-Manager
+  - Family: Observability Tools
+    Items:
+      - Prometheus
+      - Grafana
+      - Elasticsearch
+  - Family: Programming Languages
+    Items:
+      - Bash
+      - Powershell
+      - Python
   - Family: Software
     Items:
       - Bitbucket
       - Confluence
+      - Elastic
       - Jira
       - Rapid7
       - Splunk
