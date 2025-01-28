@@ -23,19 +23,21 @@ Experience:
       - Title: Senior DevOps Engineer
         Date: December 2022 - Present
         Details:
-          - Led DevOps team in managing and optimizing a combination of Azure Kubernetes Service (AKS) and OpenShift production clusters to ensure high availability and performance
-          - Designed new Kubernetes clusters and pipelines following a GitOps workflow. Employed tools such as ArgoCD, Kustomize, Helm, and Terraform
-          - Spearheaded a cost-saving initiative utilizing Vertical Pod Autoscalers to rightsize container loads, reducing AKS cloud costs by 50%
-          - Implemented Prometheus and ELK stacks to monitor applications within AKS and OpenShift clusters, providing developers with tools to design their own alerting systems and enhance application observability.
-          - Principal troubleshooter for any complicated Production issues, ensuring swift resolution and minimal downtime
-          - Collaborated closely with development teams to optimize CI/CD pipelines and ensure smooth integration and delivery of new features
+          - Spearheaded a cost-saving initiative combining Kyverno Policies to deploy Vertical Pod Autoscalers in mass, reducing overprovisioning and Azure Kubernetes Service (AKS) costs by over $50,000 annually
+          - Architected new Kubernetes clusters leveraging a GitOps workflow. Integrating tools such as ArgoCD, Kustomize, Helm, and Terraform/Terragrunt to completely automate the setup
+          - Managed and optimized multiple Production AKS and on-prem OpenShift production clusters to ensure high availability and performance
+          - Principal troubleshooter for complex production issues, utilizing tools like tcpdump, strace, and delving into the code to identify root causes
+          - Implemented Prometheus and ELK stacks to monitor applications within AKS and OpenShift clusters, providing developers with tools to design their own alerting systems and enhance application observability
+          - Migrated Kubernetes secrets to HashiCorp Vault for enhanced security and disaster recovery
+          - Simplified the Developer experience for requesting namespace resources and deploying applications by introducing a GitOps workflow with ArgoCD, enabling self-service provisioning and automated deployments
+          - Led the replacement of on-prem OpenShift clusters with minimal downtime and reducing CPU count to lower operational costs while maintaining performance and reliability
   - Employer: Vitalant
     Place: Scottsdale, AZ
     Positions:
       - Title: Senior Systems Engineer
         Date: May 2021 - December 2022
         Details:
-          - Orchestrated the deployment of AWS EKS Clusters using Terraform, while concurrently dockerizing and migrating multiple internal applications to the Kubernetes environment
+          - Orchestrated the deployment of AWS EKS Clusters using Terraform, while concurrently dockerizing and migrating internal applications to the Kubernetes environment
           - Streamlined existing manual processes by developing automated Python API scripts
   - Employer: CCBill LLC
     Place: Phoenix, AZ
@@ -44,23 +46,8 @@ Experience:
         Date: May 2017 - May 2021
         Details:
           - Project lead on upgrading multiple large production MySQL database servers, developing Ansible playbooks to ensure seamless and safe upgrades
-          - Completely automated the creation of new Linux environments in VMware, encompassing over 50 Virtual Machines, using Ansible and Puppet
+          - Completely automated the creation of new Linux environments in VMware, encompassing 50+ Virtual Machines, using Ansible and Puppet
           - Led initiative to replace Jenkins CI/CD Docker agents with on-prem Kubernetes clusters
-References:
-  - Name: Bill Holt
-    Relation: Director of Network Operations at PhoenixNAP LLC
-    Contacts:
-    - Icon: fas fa-phone
-      Info: 480-293-4503
-    - Icon: fas fa-envelope
-      Info: billh@phoenixnap.com
-  - Name: Kathy Henry
-    Relation: Manager of Systems Engineering at CCBill LLC
-    Contacts:
-    - Icon: fas fa-phone
-      Info: 623-363-4382
-    - Icon: fas fa-envelope
-      Info: kathyh@ccbill.com
 
 Skills:
   - Family: Automation Tools
@@ -97,6 +84,7 @@ Skills:
       - Helm
       - Kustomize
       - Cert-Manager
+      - Kyverno
   - Family: Observability Tools
     Items:
       - Prometheus
